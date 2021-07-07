@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm.vue 컴포넌트 테스트 1`] = `
+<div class="row">
+  <div class="col-md-8 col-12"><span class="ttt"></span>
+    <div class="v-card__text test mt-12">
+      <h2 class="text-center display-1 indigo--text">로그인</h2>
+      <h4 class="text-center mlt-4">로그인을 위해 작성해주세요</h4>
+      <form novalidate="novalidate" class="v-form">
+        <div class="v-input test v-input--is-label-active v-input--is-dirty theme--light v-text-field">
+          <div class="v-input__prepend-outer">
+            <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--light"></i></div>
+          </div>
+          <div class="v-input__control">
+            <div class="v-input__slot">
+              <div class="v-text-field__slot"><label for="input-3" class="v-label v-label--active theme--light" style="left: 0px; position: absolute;">이메일</label><input name="email" id="input-3" type="text"></div>
+            </div>
+            <div class="v-text-field__details">
+              <div class="v-messages theme--light">
+                <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+              </div>
+              <div class="v-counter theme--light">7 / 20</div>
+            </div>
+          </div>
+        </div>
+        <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field">
+          <div class="v-input__prepend-outer">
+            <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-lock theme--light"></i></div>
+          </div>
+          <div class="v-input__control">
+            <div class="v-input__slot">
+              <div class="v-text-field__slot"><label for="input-7" class="v-label v-label--active theme--light" style="left: 0px; position: absolute;">비밀번호</label><input name="password" id="input-7" type="password"></div>
+            </div>
+            <div class="v-text-field__details">
+              <div class="v-messages theme--light">
+                <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+              </div>
+              <div class="v-counter theme--light">4 / 20</div>
+            </div>
+          </div>
+        </div>
+        <!---->
+        <div class="text-center mt-3"><button type="submit" class="v-btn v-btn--is-elevated v-btn--has-bg v-btn--rounded theme--dark v-size--default indigo accent-2"><span class="v-btn__content">로그인</span></button></div>
+      </form>
+    </div>
+  </div>
+  <div class="indigo darken-1 col-md-4 col-12">
+    <div class="v-card__text white--text mt-12">
+      <h1 class="text-center display-1">환영합니다!</h1>
+      <h5 class="text-center mt-2">아직 회원가입된 회원이 아니신가요?</h5>
+    </div>
+    <div class="text-center pa-3"><button type="button" class="v-btn v-btn--outlined v-btn--rounded theme--dark v-size--default"><span class="v-btn__content">회원가입</span></button></div>
+  </div>
+</div>
+`;
