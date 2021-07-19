@@ -12,7 +12,7 @@
           </v-text-field>
           <v-alert v-if="errmsg" border="left" color="red"  dense text type="error">{{errmsg}}</v-alert>
           <div class="text-center mt-3">
-            <v-btn  rounded color="indigo accent-2" dark :disabled="!valid" type="submit">로그인</v-btn>
+            <v-btn id="login_btn"  rounded color="indigo accent-2" dark :disabled="!valid" type="submit">로그인</v-btn>
           </div>
         </v-form>
       </v-card-text>

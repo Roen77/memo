@@ -6,16 +6,17 @@ export const list={
         return request.post(`${routeName}`,info)
     },
     // 보드,카드 가져오기
-    fetchs(Info){
-        return Info.id?request.get(`${Info.routeName}/${Info.id}`): request.get(`${Info.routeName}`)
+    fetchs(payload){
+        return payload.id?request.get(`${payload.routeName}/${payload.id}`): request.get(`${payload.routeName}`)
     },
     // 보드,카드 수정
     update({routeName,id,info}){
         return request.put(`${routeName}/${id}`,info)
     },
-    // 보드,카드 삭제
+    // 보드 삭제
     remove({routeName,id,BoardId}){
         return BoardId?request.delete(`${routeName}/${BoardId}/${id}`) :request.delete(`${routeName}/${id}`)
+        // return BoardId?request.delete(`${routeName}/${BoardId}/${id}`) :request.delete(`${routeName}/${id}`)
     },
 }
 
@@ -24,9 +25,9 @@ export const category={
     create({info,BoardId,CardId}){
         return request.post(`categorys/${BoardId}/${CardId}`,info)
     },
-    fetchs(info){
-        // return info.CardId?request.get(`categorys/${info.BoardId}/${info.CardId}`):request.get(`categorys/${info.BoardId}`)
-        return request.get(`categorys/${info.BoardId}`)
+    fetchs(payload){
+        // return payload.CardId?request.get(`categorys/${payload.BoardId}/${payload.CardId}`):request.get(`categorys/${payload.BoardId}`)
+        return request.get(`categorys/${payload.BoardId}`)
     },
     update({CategoryId,BoardId,CardId}){
         // return info.CardId?request.get(`categorys/${info.BoardId}/${info.CardId}`):request.get(`categorys/${info.BoardId}`)

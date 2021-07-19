@@ -25,19 +25,19 @@ router.post('/',authenticated,async (req,res,next)=>{
            UserId:req.user.id
            
        })
-    //    let categoryList;
-    //    if(req.body.category){
-    //     const {category}=req.body;
-    //     categoryList= await Promise.all(category.map(c=>{
-    //         return db.Category.findOrCreate({where:{
-    //             type:c.type,
-    //             icon:c.icon
-    //         }})
-    //     }))
-    //    }
+       let categoryList;
+       if(req.body.category){
+        const {category}=req.body;
+        categoryList= await Promise.all(category.map(c=>{
+            return db.Category.findOrCreate({where:{
+                type:c.type,
+                icon:c.icon
+            }})
+        }))
+       }
 
 
-    //  await newCard.addCardTypes(categoryList.map(category=>category[0]))
+     await newCard.addCardTypes(categoryList.map(category=>category[0]))
 
      const card=await db.Card.findOne({where:{
         id:newCard.id

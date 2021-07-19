@@ -16,10 +16,10 @@ export default {
       return data
     },
     // 데이터 가져오기(보드,카드)
-    async FETCHLISTS({commit},Info){
-        const res=await list.fetchs(Info)
-        commit(`SET_LISTS`,{id:Info.id,routeName:Info.routeName,data:res.data})
-        return res.data
+    async FETCHLISTS({commit},payload){
+        const {data}=await list.fetchs(payload)
+        commit(`SET_LISTS`,{id:payload.id,routeName:payload.routeName,data})
+        return data
     },
     // 데이터 추가(보드 추가, 카드 추가)
     async CREATLIST({commit},{routeName,info}){

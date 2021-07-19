@@ -1,8 +1,6 @@
-import {createLocalVue,mount} from '@vue/test-utils';
+import {createLocalVue,shallowMount} from '@vue/test-utils';
 import LoginForm from '../../form/LoginForm.vue'
-import Vue from 'vue'
 import Vuetify from 'vuetify'
-
 
 describe("LoginForm.vue",()=>{
     const localVue = createLocalVue()
@@ -11,28 +9,18 @@ describe("LoginForm.vue",()=>{
         vuetify = new Vuetify()
       })
 
-      it('컴포넌트 테스트',()=>{
-      const wrapper=  mount(LoginForm,{
-      localVue,
-      vuetify,
-      data(){
-        return{
-            email:'a@a.com',
-            password:'123!'
-        }
-    }
-  })
-  // expect(wrapper.html()).toMatchSnapshot()
+      test('이메일/비밀번호 데이터가 유효하지 않은 경우,버튼이 비활성화됩니다.',()=>{
+      const wrapper= shallowMount(LoginForm,{
+        localVue,
+        vuetify,
+        data(){
+          return{
+            valid:false
+            }
+         }
+       })
+      const btn=wrapper.find('#login_btn');
+      expect(btn.attributes('disabled')).toBeTruthy();
 
-  // expect(wrapper.html()).toMatchSnapshot()
-    // testbtn
-    // Wrapper { selector: '.v-card__text.test .ttt' } 
-
-    // console.log(wrapper.find('.test'),'이메일 확인좀')
-    console.log(wrapper.classes(),'이메일 확인좀')
-    // console.log(wrapper,'이메일 확인좀')
-    // expect(title.exists()).toBe(true);
-    // expect(wrapper.classes('ttt')).toBe(true)
-    // expect(title.text()).toBe('Foobar')
     })
 })

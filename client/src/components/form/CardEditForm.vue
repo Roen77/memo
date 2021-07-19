@@ -29,7 +29,7 @@
         </v-row>
         <v-card-actions v-if="editState">
           <v-spacer></v-spacer>
-          <v-btn :disabled="!valid" @click.prevent="onUpdateCard" text class="indigo darken-1 ma-2" dark>
+          <v-btn :disabled="!valid || isInput" @click.prevent="onUpdateCard" text class="indigo darken-1 ma-2" dark>
             저장
           </v-btn>
         </v-card-actions>
@@ -40,7 +40,7 @@
 
 <script>
 import {bus} from '../../../utils/bus'
-import {mapActions, mapMutations, mapState} from 'vuex';
+import {mapActions, mapState} from 'vuex';
 import FormMixin from '../../mixin/FormMixin'
 import CardSteper from '../card/CardSteper.vue';
 import CategoryForm from './CategoryForm.vue';
@@ -59,6 +59,10 @@ export default {
    },
    computed:{
         ...mapState({editState:state=>state.edit.editState}),
+        isInput(){
+          return this.card.title === this.cardTitle
+        }
+        // ...mapMutations(['ChangeState'])
    },
    watch:{
      'editState':function(){
@@ -86,10 +90,10 @@ export default {
       }
     },
     methods: {
-      ...mapMutations(['ChangeState']),
-      ...mapActions(['UPDATELIST']),
+      ...mapActions(['UPDATELIST','RESET_CATEGORYS']),
       async onUpdateCard() {
         try {
+          if(this.isInput) return
           const info = {
             title: this.cardTitle,
             description: this.cardDescription,
@@ -108,9 +112,8 @@ export default {
             })
         } catch (error) {
           console.log(error)
-        }
-      
-      }
+        } 
+      },
     }
 }
 </script>

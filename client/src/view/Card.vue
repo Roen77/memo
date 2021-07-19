@@ -84,6 +84,9 @@ import FetchMixin from '../mixin/FetchMixin';
         },
         }
     },
+  created(){
+    this.resetState()
+  },
   methods: {
     ...mapActions(['DELETELIST']),
     ...mapMutations(['ChangeState','RESET_CATEGORYS']),
@@ -130,6 +133,7 @@ import FetchMixin from '../mixin/FetchMixin';
         },
        //  편집 모드 해제시 모든 상태를 초기화시켜줍니다.
       resetState(){
+        console.log('resesetet')
         this.RESET_CATEGORYS()
         let state=["editState","addState","removeState"];
         state.forEach((state)=>{
